@@ -48,6 +48,14 @@ function mkTempDir(name: string): string {
     return dir;
 }
 
+/**
+
+function baseGitConfig(): void {
+    shell.exec(`git config --local gc.auto 0`);
+    shell.exec(`git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***`);
+}
+*/
+
 function cloneRepo(token: string, owner: string, repo: string): string {
     const dir = mkTempDir(`${owner}_${repo}`);
     const cmd = `git clone https://x-access-token:${token}@github.com/${owner}/${repo}.git ${dir}`;
